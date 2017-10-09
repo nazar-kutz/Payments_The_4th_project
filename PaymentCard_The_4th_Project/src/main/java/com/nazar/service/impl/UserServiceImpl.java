@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
         try (TransactionManager transaction = new TransactionManagerImpl(daoFactory.getConnection())) {
             String login = userDetails.get(PHONE);
             if(userDao.existLogin(login)){
-                throw new UserExistsException();
+                throw new UserExistsException(login);
             }
 
             User user = new User();
@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
                 userId = userDao.insert(user);
             } catch (PersistsException e) {
                 transaction.rollbackTransaction();
-                throw new UserExistsException(e);
+                throw new UserExistsException(user.getLogin());
             }
             user.setId(userId);
             cardService.createCardForUser(userId);

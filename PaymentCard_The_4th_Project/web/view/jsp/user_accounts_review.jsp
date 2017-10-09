@@ -7,19 +7,21 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="/WEB-INF/jTextTags" prefix="jtext"%>
 <html>
 <head>
-    <title><c:out value="${user.getFirstName()} ${user.getSurname()}"/>: Accounts</title>
+    <title><c:out value="${user.getFirstName()} ${user.getSurname()}"/>
+        <jtext:out value="title.accounts.review" before=" : "/></title>
 </head>
 <body>
 <jsp:include page="exit.jsp"/>
-<a href="${pathManager.getUserCabinetUri()}">go to cabinet</a><br>
+<a href="${pathManager.getUserCabinetUri()}"><jtext:out value="link.go.to.cabinet"/></a><br>
 <table border="1">
     <tr>
         <b>
-            <td>ID</td>
-            <td>balance</td>
-            <td>replenish date</td>
+            <td><jtext:out value="data.id"/></td>
+            <td><jtext:out value="data.account.balance"/></td>
+            <td><jtext:out value="data.account.replenishment.date"/></td>
         </b>
     </tr>
     <c:forEach items="${user.getAccounts()}" var="account">
@@ -32,14 +34,14 @@
                     <c:choose>
                             <c:when test="${account.isToUnblock() == true}">
                                 <td colspan="4">
-                                    <span style="color: green">in process</span>
+                                    <span style="color: green"><jtext:out value="data.in.process"/></span>
                                 </td>
                             </c:when>
                             <c:otherwise>
                                 <td colspan="4">
                                     <form action="/servlet/unblock_request">
                                         <input type="hidden" name="currentAccountId" value="${account.getId()}">
-                                        <input type="submit" value="unblock">
+                                        <input type="submit" value="<jtext:out value="button.unblock"/>">
                                     </form>
                                 </td>
                             </c:otherwise>
@@ -50,27 +52,27 @@
                         <form action="/servlet/transition">
                             <input type="hidden" name="path" value="${pathManager.getUserAccountPageUri()}">
                             <input type="hidden" name="currentAccountId" value="${account.getId()}">
-                            <input type="submit" value="show account">
+                            <input type="submit" value="<jtext:out value="button.show.account"/>">
                         </form>
                     </td>
                     <td>
                         <form action="/servlet/transition">
                             <input type="hidden" name="path" value="${pathManager.getUserPaymentUri()}">
                             <input type="hidden" name="currentAccountId" value="${account.getId()}">
-                            <input type="submit" value="do payment">
+                            <input type="submit" value="<jtext:out value="button.do.payment"/>">
                         </form>
                     </td>
                     <td>
                         <form action="/servlet/transition">
                             <input type="hidden" name="path" value="${pathManager.getUserReplenishUri()}">
                             <input type="hidden" name="currentAccountId" value="${account.getId()}">
-                            <input type="submit" value="replenish">
+                            <input type="submit" value="<jtext:out value="button.do.replenish"/>">
                         </form>
                     </td>
                     <td>
                         <form action="/servlet/block">
                             <input type="hidden" name="currentAccountId" value="${account.getId()}">
-                            <input type="submit" value="block">
+                            <input type="submit" value="<jtext:out value="button.block"/>">
                         </form>
                     </td>
                 </c:otherwise>

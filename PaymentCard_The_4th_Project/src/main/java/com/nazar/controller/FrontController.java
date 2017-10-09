@@ -62,8 +62,8 @@ public class FrontController {
         commands.put(pathManager.getRegistrationCommandPath(), new RegistrationCommand());
         commands.put(pathManager.getTransitionCommandPath(), new TransitionCommand());
         commands.put(pathManager.getReplenishCommandPath(), new ReplenishCommand());
+        commands.put(pathManager.getLanguageCommandPath(), new LanguageCommand());
         commands.put(pathManager.getPaymentCommandPath(), new PaymentCommand());
-        commands.put(pathManager.getLanguageCommandPath(), new LoginCommand());
         commands.put(pathManager.getLoginCommandPath(), new LoginCommand());
         commands.put(pathManager.getExitCommandPath(), new ExitCommand());
     }

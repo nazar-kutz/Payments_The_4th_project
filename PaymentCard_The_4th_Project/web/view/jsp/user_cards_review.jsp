@@ -7,19 +7,21 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="/WEB-INF/jTextTags" prefix="jtext"%>
 <html>
 <head>
-    <title><c:out value="${user.getFirstName()} ${user.getSurname()}"/>: Cards</title>
+    <title><c:out value="${user.getFirstName()} ${user.getSurname()}"/>
+        <jtext:out value="title.cards.review" before=" : "/></title>
 </head>
 <body>
 <jsp:include page="exit.jsp"/>
-<a href="${pathManager.getUserCabinetUri()}">go to cabinet</a><br>
+<a href="${pathManager.getUserCabinetUri()}"><jtext:out value="link.go.to.cabinet"/></a><br>
 <table border="1">
     <tr>
         <b>
-            <td>ID</td>
-            <td>expiration date</td>
-            <td>account</td>
+            <td><jtext:out value="data.id"/></td>
+            <td><jtext:out value="data.expiration.date"/></td>
+            <td><jtext:out value="data.account"/></td>
         </b>
     </tr>
     <c:forEach items="${user.getCards()}" var="card">
@@ -31,7 +33,7 @@
                 <form action="/servlet/transition">
                     <input type="hidden" name="path" value="${pathManager.getUserAccountPageUri()}">
                     <input type="hidden" name="currentAccountId" value="${card.getAccountId()}">
-                    <input type="submit" value="show account">
+                    <input type="submit" value="<jtext:out value="button.show.account"/>">
                 </form>
             </td>
         </tr>

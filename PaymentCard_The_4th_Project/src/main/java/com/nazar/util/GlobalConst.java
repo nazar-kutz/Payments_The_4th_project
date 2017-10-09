@@ -19,5 +19,6 @@ public interface GlobalConst {
     String TO_UNBLOCK_LIST = "unblock";
     String UNBLOCK_ITEM = "unblockItem";
     String REPORTS = "reports";
+    String LANGUAGE = "language";
     Long FIVE_YEARS_IN_MILLS = 157680000002L;
 }

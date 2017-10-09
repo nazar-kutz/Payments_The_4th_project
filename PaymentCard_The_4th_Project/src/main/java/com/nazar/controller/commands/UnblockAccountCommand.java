@@ -2,6 +2,7 @@ package com.nazar.controller.commands;
 
 import com.nazar.controller.ControllerCommand;
 import com.nazar.controller.FrontController;
+import com.nazar.controller.UserSessionUpdater;
 import com.nazar.dto.Account;
 import com.nazar.dto.reports.UnblockedAccountsReport;
 import com.nazar.service.AccountService;
@@ -18,7 +19,7 @@ import java.util.List;
 import static com.nazar.util.GlobalConst.REPORTS;
 import static com.nazar.util.GlobalConst.UNBLOCK_ITEM;
 
-public class UnblockAccountCommand implements ControllerCommand {
+public class UnblockAccountCommand implements ControllerCommand, UserSessionUpdater {
     public static final Logger LOGGER = Logger.getLogger(UnblockAccountCommand.class);
 
     private AccountService accountService;
@@ -51,6 +52,7 @@ public class UnblockAccountCommand implements ControllerCommand {
         }
 
         request.getSession().setAttribute(REPORTS, reports);
+        updateUser(request, response);
         return pathManager.getAdminUnblockingInfoUri();
     }
 }

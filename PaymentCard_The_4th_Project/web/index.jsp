@@ -6,15 +6,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="/WEB-INF/jTextTags" prefix="jtext"%>
 <html>
 <head>
     <title>Index JSP</title>
 </head>
 <body>
     <h1>Hello from index JSP</h1>
-    <h1>There is next encoding: </h1><%=request.getCharacterEncoding()%>
+    <jtext:out value="data.you.are.welcome" before="Guest" after=" You can change this"/>
     <form action="/servlet test" method="get">
-        <input type="submit" value="go">
+        <input type="submit" value="<jtext:out value="button.send"/>">
     </form>
 </body>
 </html>

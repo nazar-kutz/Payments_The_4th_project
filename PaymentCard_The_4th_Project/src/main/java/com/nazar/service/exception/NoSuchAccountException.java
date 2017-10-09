@@ -1,7 +1,9 @@
 package com.nazar.service.exception;
 
+import static com.nazar.language.StringGlobalConstants.ERR_NO_SUCH_ACCOUNT;
+
 public class NoSuchAccountException extends RuntimeException{
-    private String message = "No such account";
+    private String message = ERR_NO_SUCH_ACCOUNT;
 
     public NoSuchAccountException(int accountId) {
         this.message += ": " + accountId;
@@ -12,7 +14,7 @@ public class NoSuchAccountException extends RuntimeException{
         return message;
     }
 
-    public NoSuchAccountException(Exception e) {
-        super(e);
+    public NoSuchAccountException(long accountId) {
+        message += ":" + accountId;
     }
 }

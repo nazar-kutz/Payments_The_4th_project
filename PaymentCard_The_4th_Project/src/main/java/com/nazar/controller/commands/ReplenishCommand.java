@@ -1,8 +1,10 @@
 package com.nazar.controller.commands;
 
+import com.nazar.controller.AccountChecker;
 import com.nazar.controller.ControllerCommand;
 import com.nazar.controller.FrontController;
 import com.nazar.controller.UserSessionUpdater;
+import com.nazar.controller.exception.NoAccessToAccountException;
 import com.nazar.dto.Account;
 import com.nazar.dto.reports.ReplenishmentReport;
 import com.nazar.service.AccountService;
@@ -18,7 +20,7 @@ import java.util.Calendar;
 
 import static com.nazar.util.GlobalConst.*;
 
-public class ReplenishCommand implements ControllerCommand, UserSessionUpdater {
+public class ReplenishCommand implements ControllerCommand, UserSessionUpdater, AccountChecker {
     public static final Logger LOGGER = Logger.getLogger(ReplenishCommand.class);
 
     private AccountService accountService;
@@ -34,6 +36,10 @@ public class ReplenishCommand implements ControllerCommand, UserSessionUpdater {
         try {
             HttpSession session = request.getSession();
             Account account = (Account)session.getAttribute(CURRENT_ACCOUNT);
+
+            if(!accountBelongsToUser(request, account)){
+                throw new NoAccessToAccountException(account.getId());
+            }
 
             long replenishmentAmountInCoins = (long)(Double.parseDouble(request.getParameter(REPLENISHMENT_AMOUNT))*100);
             accountService.replenish(account, replenishmentAmountInCoins);

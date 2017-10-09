@@ -1,7 +1,9 @@
 package com.nazar.service.exception;
 
+import static com.nazar.language.StringGlobalConstants.ERR_NOT_ENOUGH_MONEY;
+
 public class NotEnoughMoneyException extends RuntimeException {
-    private String message = "Not enough money: ";
+    private String message = ERR_NOT_ENOUGH_MONEY;
 
     @Override
     public String getMessage() {
@@ -9,7 +11,9 @@ public class NotEnoughMoneyException extends RuntimeException {
     }
 
     public NotEnoughMoneyException(long balance, long need) {
-        message += (double)need/100 + " (" + (double)balance/100 + ");";
+        StringBuilder sb = new StringBuilder(message).append(":").append((double)need/100).
+                append(" (").append((double)balance/100).append(");");
+        message = sb.toString();
     }
 
     public NotEnoughMoneyException(Exception e) {

@@ -1,0 +1,14 @@
+body {
+    background-image: url(../img/scr_1.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    font-family: "Blackadder ITC";
+    font-size: large;
+}
+
+table {
+    margin: 0 auto;
+}

@@ -56,10 +56,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public boolean doPayment(Account sender, Account recipient, Long amount) {
-        try (TransactionManager manager = new TransactionManagerImpl(daoFactory.getConnection())){
-            if(amount <= 0){
-                throw new IllegalArgumentException("not correct amount of money: " + amount);
-            }
+        try (TransactionManager transaction = new TransactionManagerImpl(daoFactory.getConnection())){
             if(amount > sender.getBalance()){
                 throw new NotEnoughMoneyException(sender.getBalance(), amount);
             }
@@ -67,17 +64,17 @@ public class AccountServiceImpl implements AccountService {
                 throw new AccountIsBlockedException();
             }
 
-            manager.begin();
+            transaction.begin();
             try{
                 sender.setBalance(sender.getBalance() - amount);
                 update(sender);
                 recipient.setBalance(recipient.getBalance() + amount);
                 update(recipient);
             } catch (Exception e){
-                manager.rollbackTransaction();
+                transaction.rollbackTransaction();
                 return false;
             }
-            manager.commit();
+            transaction.commit();
             return true;
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -108,7 +105,7 @@ public class AccountServiceImpl implements AccountService {
             boolean operationSuccess = accountDao.update(account);
             return operationSuccess;
         } catch (Exception e){
-            throw new NoSuchAccountException(e);
+            throw new NoSuchAccountException(account.getId());
         }
     }
 

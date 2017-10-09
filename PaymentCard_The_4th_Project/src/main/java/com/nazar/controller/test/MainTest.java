@@ -1,10 +1,16 @@
 package com.nazar.controller.test;
 
 import com.nazar.dto.User;
+import com.nazar.language.LanguageManager;
+import com.nazar.language.languages.AbstractLanguage;
+import com.nazar.language.languages.EnglishLanguage;
+import com.nazar.language.languages.UkrainianLanguage;
 import com.nazar.service.UserService;
 import com.nazar.service.impl.UserServiceImpl;
 
 import java.sql.SQLException;
+
+import static com.nazar.language.StringGlobalConstants.TITLE_UNBLOCKING_INFORMATION;
 
 public class MainTest {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
@@ -27,7 +33,7 @@ public class MainTest {
             System.out.println(opAccount.get().toString());
         }*/
 
-        UserService userService = UserServiceImpl.getInstance();
+        /*UserService userService = UserServiceImpl.getInstance();
         User user = userService.login("12", "12345");
         System.out.println(user.toString());
 
@@ -37,6 +43,6 @@ public class MainTest {
             System.out.println(mysqlDrv);
         } catch (Exception ex) {
             ex.printStackTrace();
-        }
+        }*/
     }
 }

@@ -1,21 +1,16 @@
 package com.nazar.controller.exception;
 
+import static com.nazar.language.StringGlobalConstants.ERR_NO_SUCH_PATH;
+
 public class NoSuchPathException extends RuntimeException {
-    private String message = "No such path: ";
+    private String message = ERR_NO_SUCH_PATH;
 
     @Override
     public String getMessage() {
         return message;
     }
 
-    public NoSuchPathException(Exception e) {
-        super(e);
-    }
-
-    public NoSuchPathException() {
-    }
-
     public NoSuchPathException(String message) {
-        this.message += message;
+        this.message += ":" + message;
     }
 }

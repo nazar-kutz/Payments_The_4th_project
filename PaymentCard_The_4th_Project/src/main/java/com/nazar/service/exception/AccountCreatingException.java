@@ -1,7 +1,9 @@
 package com.nazar.service.exception;
 
+import static com.nazar.language.StringGlobalConstants.ERR_ACCOUNT_CREATING;
+
 public class AccountCreatingException extends RuntimeException {
-    private String message = "Can't create an account";
+    private String message = ERR_ACCOUNT_CREATING;
 
     @Override
     public String getMessage() {

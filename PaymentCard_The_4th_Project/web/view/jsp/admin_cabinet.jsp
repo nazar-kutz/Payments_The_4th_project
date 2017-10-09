@@ -7,18 +7,20 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="/WEB-INF/jTextTags" prefix="jtext"%>
 <html>
 <head>
     <title><c:out value="${user.getFirstName()} ${user.getSurname()}"/></title>
 </head>
 <body>
 <jsp:include page="exit.jsp"/>
+<jsp:include page="language.jsp"/>
 <table border="1">
     <tr>
         <b>
-            <td>ID</td>
-            <td>balance</td>
-            <td>replenish date</td>
+            <td><jtext:out value="data.id"/></td>
+            <td><jtext:out value="data.account.balance"/></td>
+            <td><jtext:out value="data.account.replenishment.date"/></td>
         </b>
     </tr>
     <form action="/servlet/unblock">
@@ -31,7 +33,7 @@
         </tr>
 </c:forEach>
         <tr>
-            <td><input type="submit" value="unblock"></td>
+            <td><input type="submit" value="<jtext:out value="button.unblock"/>"></td>
         </tr>
     </form>
 </table>
