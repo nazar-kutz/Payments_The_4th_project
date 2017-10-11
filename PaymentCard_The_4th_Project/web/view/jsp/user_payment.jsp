@@ -11,17 +11,22 @@
 <html>
 <head>
     <title><jtext:out value="title.payment" after=" "/><c:out default="" value="${currentAccount.getId()}"/></title>
+    <link rel="stylesheet" type="text/css" href="/view/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/view/css/contain_table.css">
 </head>
 <body>
-<jsp:include page="exit.jsp"/>
+<jsp:include page="/view/jsp/header.jsp"/>
+<hr>
+<h3 align="center"><jtext:out value="title.payment"/></h3>
+<hr>
 <form action="/servlet/payment">
-    <table>
+    <table class="contain_tab">
         <tr>
-            <td><input type="text" name="recipient" required pattern="[0-9]+"
+            <td><input type="text" name="recipient" required pattern="[0-9]+" class="input_text"
                        placeholder="<jtext:out value="data.recipient"/>"></td>
         </tr>
         <tr>
-            <td><input type="text" name="sum" required pattern="[0-9]+(.[0-9]*)?"
+            <td><input type="text" name="sum" required pattern="[0-9]+(\.[0-9]*)?" class="input_text"
                        placeholder="<jtext:out value="data.amount"/>"></td>
         </tr>
         <tr>

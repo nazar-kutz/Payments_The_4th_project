@@ -11,13 +11,18 @@
 <html>
 <head>
     <title><jtext:out value="title.replenish" after=" : "/><c:out default="" value="${currentAccount.getId()}"/></title>
+    <link rel="stylesheet" type="text/css" href="/view/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/view/css/contain_table.css">
 </head>
 <body>
-<jsp:include page="exit.jsp"/>
+<jsp:include page="/view/jsp/header.jsp"/>
+<hr>
+<h3 align="center"><jtext:out value="title.replenish"/></h3>
+<hr>
 <form action="/servlet/replenishment">
-    <table>
+    <table class="contain_tab">
         <tr>
-            <td><input type="text" name="replenishment" required pattern="[0-9]+(.[0-9]*)?"
+            <td><input type="text" name="replenishment" required pattern="[0-9]+(\.[0-9]*)?" class="input_text"
                        placeholder="<jtext:out value="data.amount"/>"></td>
         </tr>
         <tr>

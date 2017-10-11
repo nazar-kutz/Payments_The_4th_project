@@ -17,6 +17,7 @@ public class PathManager {
     private String userReplenishInfoUri;
     private String userPaymentUri;
     private String userPaymentInfoUri;
+    private String commonLanguageUri;
 
     private String loginCommandPath;
     private String registrationCommandPath;
@@ -57,6 +58,7 @@ public class PathManager {
             userReplenishInfoUri = properties.getProperty("page.user.replenish.info");
             userPaymentUri = properties.getProperty("page.user.payment.process");
             userPaymentInfoUri = properties.getProperty("page.user.payment.info");
+            commonLanguageUri = properties.getProperty("page.common.language");
 
             loginCommandPath = properties.getProperty("path.login.command");
             registrationCommandPath = properties.getProperty("path.register.command");
@@ -159,6 +161,10 @@ public class PathManager {
 
     public String getLanguageCommandPath() {
         return languageCommandPath;
+    }
+
+    public String getCommonLanguageUri() {
+        return commonLanguageUri;
     }
 }
 

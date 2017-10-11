@@ -1,6 +1,7 @@
 package com.nazar.controller.test;
 
 import com.nazar.dto.User;
+import com.nazar.dto.UserRole;
 import com.nazar.language.LanguageManager;
 import com.nazar.language.languages.AbstractLanguage;
 import com.nazar.language.languages.EnglishLanguage;
@@ -44,5 +45,7 @@ public class MainTest {
         } catch (Exception ex) {
             ex.printStackTrace();
         }*/
+
+        System.out.println(UserRole.ADMIN.toString());
     }
 }

@@ -12,6 +12,7 @@ public interface StringGlobalConstants {
     String TITLE_PAYMENT_INFORMATION = "title.payment.information";
     String TITLE_REPLENISH = "title.replenish";
     String TITLE_REPLENISH_INFORMATION = "title.replenish.information";
+    String TITLE_LANGUAGE = "title.language";
 
     //DATA
     String DATA_PHONE_NUMBER = "data.phone.number";
@@ -38,6 +39,7 @@ public interface StringGlobalConstants {
     String DATA_LAST_NAME = "data.last.name";
     String DATA_PATRONYMIC = "data.patronymic";
     String DATA_IN_PROCESS = "data.in.process";
+    String DATA_CHOSE_LANGUAGE = "data.chose.language";
 
     //BUTTONS
     String BUTTON_SIGN_IN = "button.sign.in";
@@ -56,6 +58,7 @@ public interface StringGlobalConstants {
     String LINK_GO_TO_MY_CARDS = "link.go.to.my.cards";
     String LINK_GO_TO_MY_ACCOUNTS = "link.go.to.my.accounts";
     String LINK_GO_TO_CABINET = "link.go.to.cabinet";
+    String LINK_LANGUAGE = "link.language";
 
     //EXCEPTIONS
     String ERR_USER_NOT_EXISTS = "err.user.not.exists";

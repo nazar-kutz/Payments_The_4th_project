@@ -1,0 +1,19 @@
+input[type="submit"]{
+    width : 200px;
+    height: 35px;
+    color: #fff;
+    text-shadow: none;
+    background-color: darkslategray;
+    cursor: pointer;
+}
+
+tr, td{
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 20px;
+}
+
+.account_details_caption{
+    font-weight: 900;
+    font-size: 20px;
+}

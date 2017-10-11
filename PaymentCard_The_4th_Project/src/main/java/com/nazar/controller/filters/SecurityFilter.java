@@ -2,6 +2,7 @@ package com.nazar.controller.filters;
 
 import com.nazar.dto.User;
 import com.nazar.dto.UserRole;
+import com.nazar.service.impl.UserServiceImpl;
 import com.nazar.util.PathManager;
 
 import javax.servlet.*;
@@ -35,9 +36,11 @@ public class SecurityFilter implements Filter {
         userUri.add(pathManager.getUserReplenishInfoUri());
         userUri.add(pathManager.getUserPaymentUri());
         userUri.add(pathManager.getUserPaymentInfoUri());
+        userUri.add(pathManager.getCommonLanguageUri());
 
         adminUri.add(pathManager.getAdminCabinetUri());
         adminUri.add(pathManager.getAdminUnblockingInfoUri());
+        adminUri.add(pathManager.getCommonLanguageUri());
     }
 
     @Override

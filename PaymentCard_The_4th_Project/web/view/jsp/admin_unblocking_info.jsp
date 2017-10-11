@@ -11,9 +11,10 @@
 <html>
 <head>
     <title><jtext:out value="title.unblocking.information"/></title>
+    <link rel="stylesheet" type="text/css" href="/view/css/common.css">
 </head>
 <body>
-<jsp:include page="exit.jsp"/>
+<jsp:include page="/view/jsp/header.jsp"/>
 <ul>
     <c:forEach items="${reports}" var="report">
         <li><c:out value="${report.getInfo()}"/></li>

@@ -12,11 +12,13 @@ import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.nazar.util.GlobalConst.REPORTS;
+import static com.nazar.util.GlobalConst.TO_UNBLOCK_LIST;
 import static com.nazar.util.GlobalConst.UNBLOCK_ITEM;
 
 public class UnblockAccountCommand implements ControllerCommand, UserSessionUpdater {
@@ -51,7 +53,9 @@ public class UnblockAccountCommand implements ControllerCommand, UserSessionUpda
             reports.add(report);
         }
 
-        request.getSession().setAttribute(REPORTS, reports);
+        HttpSession session = request.getSession();
+        session.setAttribute(REPORTS, reports);
+
         updateUser(request, response);
         return pathManager.getAdminUnblockingInfoUri();
     }

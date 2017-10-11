@@ -12,22 +12,22 @@
 <head>
     <title><jtext:out value="title.login"/></title>
     <link rel="stylesheet" type="text/css" href="/view/css/login.css">
+    <link rel="stylesheet" type="text/css" href="/view/css/common.css">
 </head>
 <body>
-    <br><br><hr><br><br><br><br><br><br>
     <form action="/servlet/login" method="post">
-        <table align="center">
+        <table align="center" class="log_tab">
             <tr>
                 <td><jtext:out value="data.phone.number" after=": "/></td>
-                <td><input type="text " name="login"></td>
+                <td><input type="text " name="login" class="input_text"></td>
             </tr>
             <tr>
                 <td><jtext:out value="data.password" after=": "/></td>
-                <td><input type="password" name="password"></td>
+                <td><input type="password" name="password" class="input_text"></td>
             </tr>
             <tr>
                 <td><a href="/view/jsp/registration.jsp"><jtext:out value="link.register.me"/></a></td>
-                <td><input type="submit" value="<jtext:out value="button.sign.in"/>" style="background-image: url(../img/button_1.PNG); width: 50px"></td>
+                <td><input type="submit" value="<jtext:out value="button.sign.in"/>"></td>
             </tr>
             <tr>
                 <td colspan="2"><span style="color: red">

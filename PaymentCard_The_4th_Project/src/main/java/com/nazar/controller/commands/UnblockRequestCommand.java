@@ -14,6 +14,7 @@ import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import static com.nazar.util.GlobalConst.CURRENT_ACCOUNT;
 import static com.nazar.util.GlobalConst.CURRENT_ACCOUNT_ID;
 import static com.nazar.util.GlobalConst.ERROR;
 
@@ -37,10 +38,11 @@ public class UnblockRequestCommand implements ControllerCommand, UserSessionUpda
             }
             accountService.markAccountToUnblock(account);
             updateUser(request, response);
+            request.getSession().setAttribute(CURRENT_ACCOUNT, account);
         } catch (Exception e){
             LOGGER.error("Error while attempting to unblock account. " + e.getMessage());
             request.setAttribute(ERROR, e.getMessage());
         }
-        return pathManager.getUserAccountReviewUri();
+        return pathManager.getUserAccountPageUri();
     }
 }

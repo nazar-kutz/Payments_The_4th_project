@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import static com.nazar.util.GlobalConst.CURRENT_ACCOUNT;
 import static com.nazar.util.GlobalConst.CURRENT_ACCOUNT_ID;
 import static com.nazar.util.GlobalConst.ERROR;
 
@@ -36,10 +37,11 @@ public class BlockAccountCommand implements ControllerCommand, UserSessionUpdate
             }
             accountService.block(account);
             updateUser(request, response);
+            request.getSession().setAttribute(CURRENT_ACCOUNT, account);
         } catch (Exception e){
             LOGGER.error("Error while attempting to block account. " + e.getMessage());
             request.setAttribute(ERROR, e.getMessage());
         }
-        return pathManager.getUserAccountReviewUri();
+        return pathManager.getUserAccountPageUri();
     }
 }

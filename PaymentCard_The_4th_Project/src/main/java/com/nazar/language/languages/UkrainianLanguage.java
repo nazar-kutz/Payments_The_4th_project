@@ -15,6 +15,7 @@ public class UkrainianLanguage extends AbstractLanguage {
             {TITLE_PAYMENT_INFORMATION,     "Інформація з останнього платежу"},
             {TITLE_REPLENISH,               "Поповнити рахунок"},
             {TITLE_REPLENISH_INFORMATION,   "Інформація з останнього поповнення"},
+            {TITLE_LANGUAGE,                "Мова"},
 
             //DATA
             {DATA_PHONE_NUMBER,             "Номер телефону"},
@@ -40,14 +41,15 @@ public class UkrainianLanguage extends AbstractLanguage {
             {DATA_SUM_OF_PAYMENT,           "сума платежу"},
             {DATA_DATE,                     "дата"},
             {DATA_NOW_YOUR_BALANCE_IS,      "тепер ваш баланс становить"},
-            {DATA_IN_PROCESS,               "в процесі"},
+            {DATA_IN_PROCESS,               "В черзі на розблокування"},
+            {DATA_CHOSE_LANGUAGE,           "Виберіть мову"},
 
             //BUTTONS
             {BUTTON_SIGN_IN,                "увійти"},
             {BUTTON_SIGN_UP,                "зареєструватися"},
             {BUTTON_BLOCK,                  "заблокувати"},
             {BUTTON_UNBLOCK,                "розблокувати"},
-            {BUTTON_EXIT,                   "вихід"},
+            {BUTTON_EXIT,                   "ВИХІД"},
             {BUTTON_SHOW_ACCOUNT,           "перейти"},
             {BUTTON_DO_PAYMENT,             "зробити платіж"},
             {BUTTON_DO_REPLENISH,           "поповнити"},
@@ -56,9 +58,10 @@ public class UkrainianLanguage extends AbstractLanguage {
             //LINKS
             {LINK_REGISTER_ME,              "зареєструватися"},
             {LINK_LOGIN_PAGE,               "увійти"},
-            {LINK_GO_TO_MY_CARDS,           "перейти"},
-            {LINK_GO_TO_MY_ACCOUNTS,        "перейти"},
-            {LINK_GO_TO_CABINET,            "до кабінету"},
+            {LINK_GO_TO_MY_CARDS,           "МОЇ КАРТКИ"},
+            {LINK_GO_TO_MY_ACCOUNTS,        "МОЇ РАХУНКИ"},
+            {LINK_GO_TO_CABINET,            "ГОЛОВНА"},
+            {LINK_LANGUAGE,                 "МОВА"},
 
             //ERRORS
             {ERR_USER_NOT_EXISTS,           "Не коректний логін або пароль"},

@@ -1,0 +1,18 @@
+.review_table {
+    width: 50%;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+tr, td{
+    font-size: 20px;
+}
+
+input[type="submit"]{
+    width : 75px;
+    height: 25px;
+    color: #fff;
+    text-shadow: none;
+    background-color: darkslategray;
+    cursor: pointer;
+}

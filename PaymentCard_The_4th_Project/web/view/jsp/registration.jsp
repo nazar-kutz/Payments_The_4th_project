@@ -11,36 +11,39 @@
 <html>
 <head>
     <title><jtext:out value="title.registration"/></title>
+    <link rel="stylesheet" type="text/css" href="/view/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/view/css/registration.css">
 </head>
 <body>
     <form action="/servlet/registration">
-        <table>
+        <table align="center" class="reg_tab">
             <tr>
                 <td><jtext:out value="data.first.name" after=": "/></td>
-                <td><input type="text" name="fname" required pattern="[a-zA-Z]+"></td>
+                <td><input type="text" name="fname" class="input_text" required pattern="[a-zA-Z]+"></td>
             </tr>
             <tr>
                 <td><jtext:out value="data.last.name" after=": "/></td>
-                <td><input type="text" name="lname" required pattern="[a-zA-Z]+"></td>
+                <td><input type="text" name="lname" class="input_text" required pattern="[a-zA-Z]+"></td>
             </tr>
             <tr>
                 <td><jtext:out value="data.patronymic" after=": "/></td>
-                <td><input type="text" name="patronymic" required pattern="[a-zA-Z]+"></td>
+                <td><input type="text" name="patronymic" class="input_text" required pattern="[a-zA-Z]+"></td>
             </tr>
             <tr>
                 <td><jtext:out value="data.phone.number" after=": "/> </td>
-                <td><input type="text" name="phone" required pattern=
+                <td><input type="text" name="phone" class="input_text" required pattern=
                         "^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$"></td>
             </tr>
             <tr>
                 <td><jtext:out value="data.password" after=": "/></td>
-                <td><input type="password" name="password" required pattern="[a-zA-Z1-9]{4}[a-zA-Z1-9]*"></td>
+                <td><input type="password" name="password" class="input_text"
+                           required pattern="[a-zA-Z1-9]{4}[a-zA-Z1-9]*"></td>
             </tr>
             <tr>
-                <td><a href="login.jsp"><jtext:out value="link.login.page"/></a></td>
+                <td align="center"><a href="login.jsp"><jtext:out value="link.login.page"/></a></td>
                 <td><input type="submit" value="<jtext:out value="button.sign.up"/>"></td>
             </tr>
-            <tr>
+            <tr style="align-content: center">
                 <td colspan="2"><span style="color: red">
                     <jtext:err value="${error}"/></span>
                 </td>

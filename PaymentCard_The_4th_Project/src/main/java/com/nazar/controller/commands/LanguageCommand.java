@@ -25,16 +25,6 @@ public class LanguageCommand implements ControllerCommand {
         LanguageManager languageManager = new LanguageManager();
         languageManager.setLanguage(languageFactory.getLanguage(language));
         request.getSession().setAttribute(LANGUAGE, languageManager);
-        return nextPage(request);
-    }
-
-    protected String nextPage(HttpServletRequest request) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        User user = (User)session.getAttribute(USER);
-        if (UserRole.ADMIN.equals(user.getRole())){
-            return PathManager.getInstance().getAdminCabinetUri();
-        } else {
-            return PathManager.getInstance().getUserCabinetUri();
-        }
+        return PathManager.getInstance().getCommonLanguageUri();
     }
 }

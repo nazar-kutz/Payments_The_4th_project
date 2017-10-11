@@ -11,8 +11,10 @@
 <html>
 <head>
     <title><jtext:out value="title.payment.information"/></title>
+    <link rel="stylesheet" type="text/css" href="/view/css/common.css">
 </head>
 <body>
+<jsp:include page="/view/jsp/header.jsp"/>
 <h3><jtext:out value="title.payment.information" after=":"/></h3>
 <table>
     <tr>

@@ -100,6 +100,7 @@ public class AccountServiceImpl implements AccountService {
         }
         Long result = account.getBalance() + amount;
         account.setBalance(result);
+        account.setRepDate(Calendar.getInstance());
         AccountDao accountDao = daoFactory.getAccountDao(daoFactory.getConnection());
         try {
             boolean operationSuccess = accountDao.update(account);
